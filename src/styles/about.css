@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300..700&display=swap');
+
+
+
+.about-container {
+  max-width: 900px;
+  margin: 50px auto;
+  text-align: center;
+  padding: 40px;
+  border: 4px solid #ff004c;
+  background: #000;
+  color: #fff;
+  font-family: 'Archivo Black', sans-serif;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+span {
+  color: #ff004c;
+}
+
+.about-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.about-card {
+  flex: 1;
+  padding: 20px;
+  background: #222;
+  border: 2px solid #ff004c;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.about-card h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.about-card p {
+  font-size: 16px;
+  color: #bbb;
+}
+
+.about-card:hover {
+  transform: scale(1.05);
+  box-shadow: 4px 4px 0px #ff004c;
+}
