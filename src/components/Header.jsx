@@ -8,21 +8,49 @@ function Header() {
   const { cart } = useCart();
   const cartCount = cart.length;
 
+  // Check if the user is logged in
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+  // Handle navigation
+  const handleNav = (path) => {
+    if (path === "/about" || isLoggedIn || path === "/login" || path === "/register") {
+      navigate(path);
+    } else {
+      alert("Please login first.");
+    }
+  };
+
+  // Handle logout
+  const handleLogout = () => {
+    localStorage.setItem("isLoggedIn", "false");  // Set login state to false
+    sessionStorage.removeItem("isLoggedIn");  // Clear sessionStorage to make it logout on close
+    navigate("/login");
+  };
+
   return (
     <header className="header">
-      <h1 className="header-title" onClick={() => navigate("/")}>
+      <h1 className="header-title" onClick={() => handleNav("/")}>
         AJV'S E-COMMERCE
       </h1>
       <nav>
         <ul className="nav-links">
-          <li onClick={() => navigate("/")}>Login</li>
-          <li onClick={() => navigate("/home")}>Products</li>
-          <li onClick={() => navigate("/about")}>About</li>
-         
-          <li onClick={() => navigate("/cart")} className="cart-button">
-            <FiShoppingCart size={24} />
-            {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
-          </li>
+          {/* About page is always accessible */}
+          <li onClick={() => handleNav("/about")}>About</li>
+
+          {/* If not logged in, show Login link */}
+          {!isLoggedIn ? (
+            <li onClick={() => handleNav("/login")}>Login</li>
+          ) : (
+            <>
+              {/* If logged in, show Products, Cart, and Logout links */}
+              <li onClick={() => handleNav("/home")}>Products</li>
+              <li onClick={() => handleNav("/cart")} className="cart-button">
+                <FiShoppingCart size={24} />
+                {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
+              </li>
+              <li onClick={handleLogout}>Logout</li> {/* Logout button */}
+            </>
+          )}
         </ul>
       </nav>
     </header>

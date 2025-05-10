@@ -4,14 +4,37 @@ import { FiUser, FiLock } from "react-icons/fi";
 import "../styles/login.css";
 
 function Login() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    if (username && password) {
-      navigate("/home");
+    try {
+      console.log("Sending request to backend...");
+      const response = await fetch("http://localhost:8080/api/users");
+      
+      // Check if the response is successful
+      if (!response.ok) {
+        throw new Error('Failed to fetch users');
+      }
+
+      const users = await response.json();
+      console.log("Users retrieved:", users);
+
+      const foundUser = users.find(
+        (user) => user.email === email && user.password === password
+      );
+
+      if (foundUser) {
+        localStorage.setItem("isLoggedIn", "true");
+        navigate("/home");
+      } else {
+        alert("Invalid email or password.");
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      alert("Something went wrong. Please try again.");
     }
   };
 
@@ -24,9 +47,9 @@ function Login() {
             <FiUser className="icon" />
             <input
               type="text"
-              placeholder="USERNAME"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              placeholder="EMAIL"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
@@ -42,6 +65,10 @@ function Login() {
           </div>
           <button type="submit" className="brutalist-button">ENTER</button>
         </form>
+        <div className="register-link">
+          Not a user?{" "}
+          <span onClick={() => navigate("/register")}>Register here</span>
+        </div>
       </div>
     </div>
   );

@@ -64,3 +64,20 @@ html, body {
   background: #fff;
   color: #000;
 }
+
+.register-link {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #000;
+  text-align: center;
+}
+
+.register-link span {
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.register-link span:hover {
+  color: #0056b3;
+}
