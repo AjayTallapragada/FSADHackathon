@@ -21,7 +21,10 @@ function Cart() {
               <div className="cart-details">
                 <h4>{item.name}</h4>
                 <p>₹{item.price}</p>
-                <button className="remove-btn" onClick={() => removeFromCart(item)}>
+                <button
+                  className="remove-btn"
+                  onClick={() => removeFromCart(item)}
+                >
                   Remove
                 </button>
               </div>
@@ -33,7 +36,10 @@ function Cart() {
       <div className="cart-footer">
         <h3>Total: ₹{totalPrice}</h3>
         <div className="cart-buttons">
-          <button onClick={() => navigate("/home")} className="continue-shopping">
+          <button
+            onClick={() => navigate("/home")}
+            className="continue-shopping"
+          >
             Continue Shopping
           </button>
           {cart.length > 0 && (

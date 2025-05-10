@@ -18,7 +18,7 @@ function Header() {
           <li onClick={() => navigate("/")}>Login</li>
           <li onClick={() => navigate("/home")}>Products</li>
           <li onClick={() => navigate("/about")}>About</li>
-          <li onClick={() => navigate("/contact")}>Contact</li>
+         
           <li onClick={() => navigate("/cart")} className="cart-button">
             <FiShoppingCart size={24} />
             {cartCount > 0 && <span className="cart-count">{cartCount}</span>}

@@ -5,7 +5,7 @@ function About() {
     <div className="about-container">
       <h1>About Us</h1>
       <p>
-        Welcome to <span>AJ's E-Commerce Website</span>, your ultimate destination for top-quality gadgets and accessories. 
+        Welcome to <span>AJV's E-Commerce Website</span>, your ultimate destination for top-quality gadgets and accessories. 
         We bring you the latest smartphones, laptops, gaming gear, and more at unbeatable prices.
       </p>
       <p>
