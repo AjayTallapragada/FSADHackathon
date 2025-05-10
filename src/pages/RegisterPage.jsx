@@ -13,54 +13,53 @@ const UserRegistration = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Sending the registration data to your backend
       const response = await axios.post('http://localhost:8080/api/users', formData);
-      
-      // Set a success message if the registration is successful
       setMessage('User registered successfully!');
-      
-      // Clear the form fields
       setFormData({ name: '', email: '', password: '' });
     } catch (error) {
-      
       setMessage('Error registering user. Please try again.');
       console.error('Error registering user:', error);
     }
   };
 
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial' }}>
-      <h2>Register User</h2>
-      <form onSubmit={handleSubmit} style={{ maxWidth: '300px' }}>
+    <div className="register-page">
+      <form className="register-form" onSubmit={handleSubmit}>
+        <h2>Register</h2>
         <input
           type="text"
           name="name"
           placeholder="Name"
+          className="input-field"
           value={formData.name}
           onChange={handleChange}
           required
-        /><br />
+        />
         <input
           type="email"
           name="email"
           placeholder="Email"
+          className="input-field"
           value={formData.email}
           onChange={handleChange}
           required
-        /><br />
+        />
         <input
           type="password"
           name="password"
           placeholder="Password"
+          className="input-field"
           value={formData.password}
           onChange={handleChange}
           required
-        /><br />
-        <button type="submit">Register</button>
-      </form>
+        />
+        <button type="submit" className="register-button">Register</button>
+        {message && <p className="error-message">{message}</p>}
 
-      {/* Show success or error message */}
-      {message && <p>{message}</p>}
+        <div className="login-link">
+          Already have an account? <a href="/login">Login here</a>
+        </div>
+      </form>
     </div>
   );
 };
