@@ -1,8 +1,8 @@
 .footer {
   text-align: center;
   padding: 10px;
-  background: #333;
-  color: white;
+  background: #bab86c; /* Olive green background */
+  color: #EFE9D5;  /* Light off-white text */
   position: fixed;
   width: 100%;
   bottom: 0;

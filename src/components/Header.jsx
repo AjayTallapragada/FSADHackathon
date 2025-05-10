@@ -8,10 +8,8 @@ function Header() {
   const { cart } = useCart();
   const cartCount = cart.length;
 
-  // Check if the user is logged in
-  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  const isLoggedIn = sessionStorage.getItem("isLoggedIn") === "true";
 
-  // Handle navigation
   const handleNav = (path) => {
     if (path === "/about" || isLoggedIn || path === "/login" || path === "/register") {
       navigate(path);
@@ -20,10 +18,8 @@ function Header() {
     }
   };
 
-  // Handle logout
   const handleLogout = () => {
-    localStorage.setItem("isLoggedIn", "false");  // Set login state to false
-    sessionStorage.removeItem("isLoggedIn");  // Clear sessionStorage to make it logout on close
+    sessionStorage.removeItem("isLoggedIn");
     navigate("/login");
   };
 
@@ -34,21 +30,20 @@ function Header() {
       </h1>
       <nav>
         <ul className="nav-links">
-          {/* About page is always accessible */}
           <li onClick={() => handleNav("/about")}>About</li>
 
-          {/* If not logged in, show Login link */}
           {!isLoggedIn ? (
-            <li onClick={() => handleNav("/login")}>Login</li>
+            <>
+              <li onClick={() => handleNav("/login")}>Login</li>
+            </>
           ) : (
             <>
-              {/* If logged in, show Products, Cart, and Logout links */}
               <li onClick={() => handleNav("/home")}>Products</li>
               <li onClick={() => handleNav("/cart")} className="cart-button">
                 <FiShoppingCart size={24} />
                 {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
               </li>
-              <li onClick={handleLogout}>Logout</li> {/* Logout button */}
+              <li onClick={handleLogout}>Logout</li>
             </>
           )}
         </ul>

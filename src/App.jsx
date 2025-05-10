@@ -5,39 +5,46 @@ import Cart from "./pages/Cart";
 import Header from "./components/Header";
 import { CartProvider } from "./context/CartContext";
 import About from './pages/About';
-import RegisterPage from './pages/RegisterPage'; // Import the Register Page
-import PrivateRoute from './components/PrivateRoute';  // Import the PrivateRoute component
+import RegisterPage from './pages/RegisterPage';
+import PrivateRoute from './components/PrivateRoute';
+import SplashScreen from "./pages/SplashScreen";
 
 function App() {
-  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";  // Check login status
+  const isLoggedIn = sessionStorage.getItem("isLoggedIn") === "true";
 
   return (
     <CartProvider>
-      <Header />
       <Routes>
-        {/* Redirect to login page if the user visits the root */}
-        <Route path="/" element={<Navigate to="/login" />} />
+        {/* Splash screen on first load */}
+        <Route path="/" element={<SplashScreen />} />
 
-        {/* Public routes */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<RegisterPage />} /> {/* Register Route */}
+        {/* Login & Register */}
+        <Route path="/login" element={<><Header /><Login /></>} />
+        <Route path="/register" element={<><Header /><RegisterPage /></>} />
 
-        {/* Protected Routes - Only accessible after login */}
+        {/* Protected routes */}
         <Route 
           path="/home" 
           element={
-            isLoggedIn ? <Home /> : <Navigate to="/login" />
+            <PrivateRoute>
+              <><Header /><Home /></>
+            </PrivateRoute>
           }
         />
         <Route 
           path="/cart" 
           element={
-            isLoggedIn ? <Cart /> : <Navigate to="/login" />
+            <PrivateRoute>
+              <><Header /><Cart /></>
+            </PrivateRoute>
           }
         />
 
-        {/* About page is public */}
-        <Route path="/about" element={<About />} />
+        {/* Public About page */}
+        <Route path="/about" element={<><Header /><About /></>} />
+
+        {/* Catch-all: redirect unknown paths */}
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </CartProvider>
   );

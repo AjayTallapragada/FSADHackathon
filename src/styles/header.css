@@ -2,24 +2,26 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 32px;
-  background-color: #0d0d0d;
-  color: #fff;
+  padding: 22px 64px;
+  background-color: #f9f8f6;
+  color: #050402;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  height: 100px;
+  width: 100%;
 }
 
 .header-title {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   font-weight: bold;
   cursor: pointer;
-  color: #f8f8f8;
+  color: #000000;
   letter-spacing: 1px;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 24px;
+  gap: 26px;
   align-items: center;
   margin: 0;
   padding: 0;
@@ -29,10 +31,11 @@
   cursor: pointer;
   font-weight: 500;
   transition: color 0.2s, transform 0.2s;
+  font-size: 1.1rem;
 }
 
 .nav-links li:hover {
-  color: #00e6e6;
+  color: #383d4d;
   transform: translateY(-2px);
 }
 
@@ -46,9 +49,9 @@
   position: absolute;
   top: -8px;
   right: -10px;
-  background-color: red;
+  background-color: #175b1d;
   color: white;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   padding: 2px 6px;
   border-radius: 50%;
   font-weight: bold;
@@ -70,11 +73,18 @@
   .header {
     flex-direction: column;
     align-items: flex-start;
+    height: auto; /* Make height auto for mobile devices */
+    padding: 16px; /* Adjust padding for smaller screens */
   }
 
   .nav-links {
     flex-direction: column;
     gap: 12px;
     margin-top: 12px;
+  }
+
+  .nav-links li {
+    font-size: 1.3rem; /* Increased font size for better readability */
+    font-weight: 600; /* Slightly heavier font weight for emphasis */
   }
 }

@@ -2,23 +2,24 @@
   padding: 40px;
   max-width: 1000px;
   margin: auto;
-  background-color: #f9f9f9;
+  background-color: #EFE9D5;  /* Light off-white background */
   min-height: 80vh;
-  border: 3px solid #000;
-  box-shadow: 6px 6px 0 #000;
+  border: 3px solid #497D74;  /* Olive green border */
+  box-shadow: 6px 6px 0 #497D74;  /* Olive green shadow */
 }
 
 .cart-heading {
-  font-size: 2.5rem; /* Bigger heading */
+  font-size: 2.5rem;
   margin-bottom: 40px;
   text-align: center;
   font-weight: bold;
   letter-spacing: 2px;
+  color: #27445D;  /* Olive green heading */
 }
 
 .empty-cart {
   font-size: 1.4rem;
-  color: #666;
+  color: #497D74;  /* Olive green text */
   text-align: center;
   margin-top: 50px;
   font-weight: bold;
@@ -34,31 +35,32 @@
 .cart-item {
   display: flex;
   align-items: center;
-  background-color: #fff;
-  border: 3px solid #000;
+  background-color: #fff;  /* White background for item */
+  border: 3px solid #497D74;  /* Olive green border */
   border-radius: 12px;
   padding: 20px;
   box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
 }
 
 .cart-item-img {
-  width: 120px; /* Larger image */
+  width: 120px;  /* Larger image */
   height: 120px;
   object-fit: cover;
   border-radius: 8px;
   margin-right: 20px;
-  border: 2px solid #000;
+  border: 2px solid #497D74;  /* Olive green border */
 }
 
 .cart-details {
   flex-grow: 1;
   text-transform: uppercase;
   font-weight: bold;
+  color: #27445D;  /* Olive green text */
 }
 
 .remove-btn {
-  background-color: #ff4d4d;
-  border: 3px solid #000;
+  background-color: #FF4D4D;  /* Red for remove button */
+  border: 3px solid #497D74;  /* Olive green border */
   padding: 12px 20px;
   color: #fff;
   border-radius: 6px;
@@ -68,7 +70,7 @@
 }
 
 .remove-btn:hover {
-  background-color: #e60000;
+  background-color: #E60000;  /* Darker red on hover */
 }
 
 .cart-footer {
@@ -76,6 +78,7 @@
   text-align: center;
   font-weight: bold;
   letter-spacing: 2px;
+  color: #27445D;  /* Olive green footer text */
 }
 
 .cart-buttons {
@@ -89,7 +92,7 @@
 .continue-shopping,
 .clear-cart {
   padding: 12px 24px;
-  border: 3px solid #000;
+  border: 3px solid #497D74;  /* Olive green border */
   border-radius: 6px;
   cursor: pointer;
   font-weight: 700;
@@ -99,22 +102,22 @@
 }
 
 .continue-shopping {
-  background-color: #007bff;
+  background-color: #71BBB2;  /* Olive green button */
   color: #fff;
 }
 
 .continue-shopping:hover {
-  background-color: #0056b3;
+  background-color: #497D74;  /* Darker olive on hover */
   border: 3px solid #fff;
 }
 
 .clear-cart {
-  background-color: #333;
+  background-color: #27445D;  /* Olive green button */
   color: #fff;
 }
 
 .clear-cart:hover {
-  background-color: #000;
+  background-color: #497D74;  /* Darker olive on hover */
   border: 3px solid #fff;
 }
 

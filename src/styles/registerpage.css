@@ -1,14 +1,14 @@
-/* General styles for the Register Page */
+/* General Styles for the Register Page */
 .register-page {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f4f4f4;
+  background-color: #f5f5f5; /* Light grey background */
   font-family: 'Arial', sans-serif;
 }
 
-/* Form container */
+/* Register Form Container */
 .register-form {
   background-color: white;
   padding: 30px;
@@ -19,14 +19,14 @@
   box-sizing: border-box;
 }
 
-/* Title style */
+/* Title Style */
 .register-form h2 {
   text-align: center;
   color: #333;
   margin-bottom: 20px;
 }
 
-/* Input fields */
+/* Input Fields */
 .input-field {
   width: 100%;
   padding: 12px;
@@ -37,11 +37,11 @@
   font-size: 16px;
 }
 
-/* Button */
+/* Register Button */
 .register-button {
   width: 100%;
   padding: 12px;
-  background-color: #007bff;
+  background-color: #2f4f2f; /* Olive Green Button */
   color: white;
   border: none;
   border-radius: 4px;
@@ -51,10 +51,10 @@
 }
 
 .register-button:hover {
-  background-color: #0056b3;
+  background-color: #4b6e4b; /* Slightly lighter olive green on hover */
 }
 
-/* Error message */
+/* Error Message */
 .error-message {
   color: red;
   font-size: 14px;
@@ -62,18 +62,19 @@
   text-align: center;
 }
 
-/* Link to login page */
+/* Link to Login Page */
 .login-link {
   text-align: center;
   margin-top: 15px;
 }
 
 .login-link a {
-  color: #007bff;
+  color: #2f4f2f; /* Olive Green Link */
   text-decoration: none;
   font-size: 16px;
 }
 
 .login-link a:hover {
   text-decoration: underline;
+  color: #4b6e4b; /* Lighter olive green on hover */
 }

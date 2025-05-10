@@ -1,0 +1,107 @@
+
+.splash-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+/* Main Logo */
+.main-logo {
+  max-width: 35%;
+  animation: popup 1s ease-out;
+  z-index: 2;
+  margin-bottom: 20px;
+}
+
+/* GIF Animation */
+.gif {
+  position: absolute;
+  width: 132px;
+  height: 132px;
+  object-fit: contain;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  z-index: 1;
+}
+
+/* Specific Item Animations */
+.cart {
+  top: 10%;
+  left: 15%;
+  animation-delay: 0.5s;
+}
+
+.headphone {
+  top: 20%;
+  right: 10%;
+  animation-delay: 0.7s;
+}
+
+.rocket {
+  bottom: 15%;
+  left: 25%;
+  animation-delay: 0.9s;
+}
+
+.shoe {
+  bottom: 10%;
+  right: 20%;
+  animation-delay: 1.1s;
+}
+
+/* Keyframes for Popup Animation */
+@keyframes popup {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Keyframes for Fade In Animation */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Loading Bar Styles */
+.loading-bar {
+  width: 60%;
+  height: 6px;
+  background-color: #f0f0f0; /* Light grey background for the bar */
+  border-radius: 4px;
+  overflow: hidden;
+  position: absolute;
+  bottom: 40px;
+  z-index: 2;
+}
+
+.loading-fill {
+  height: 100%;
+  width: 0%;
+  background-color: #2f4f2f; /* Olive Green fill color */
+  animation: loadingAnim 4s ease-in-out forwards;
+}
+
+/* Keyframes for Loading Bar Animation */
+@keyframes loadingAnim {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
