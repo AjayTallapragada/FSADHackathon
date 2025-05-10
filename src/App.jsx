@@ -1,16 +1,25 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import UserPage from "./components/UserPage";
-import HomePage from "./components/HomePage"; // Replace with your actual home page component
+import { Routes, Route, Navigate } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Cart from "./pages/Cart";
+import Header from "./components/Header";
+import { CartProvider } from "./context/CartContext";
+import About from './pages/About'
 
 function App() {
   return (
-    <Router>
+    <CartProvider>
+      <Header />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/user" element={<UserPage />} />
+        <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/about" element={<About />} />
+        
+
       </Routes>
-    </Router>
+    </CartProvider>
   );
 }
 
