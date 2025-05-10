@@ -1,12 +1,39 @@
-# React + Vite
+# 🛒 AJV's E-Commerce Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and stylish e-commerce web application built for the FSAD Hackathon. Users can browse products, add them to their cart, and manage their shopping experience with persistent local storage support.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🛍️ Browse product listings
+- 🛒 Add/remove items from the cart
+- 🧠 Persistent cart using `localStorage`
+- ⚡ Fast navigation using `react-router-dom`
+- 📱 Responsive design
+- 🖤 Clean UI using custom CSS and `react-icons`
 
-## Expanding the ESLint configuration
+## 📸 Screenshots
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+_Add screenshots here if needed (e.g., homepage, cart page)._
+
+## 🛠️ Tech Stack
+
+- React
+- React Router
+- Context API
+- CSS3
+- JavaScript (ES6+)
+
+## 📂 Folder Structure
+
+```bash
+FSADHackathon/
+├── public/
+├── src/
+│   ├── components/
+│   ├── context/
+│   ├── pages/
+│   ├── styles/
+│   └── App.js
+├── .gitignore
+├── package.json
+└── README.md
