@@ -3,10 +3,14 @@ import { useNavigate } from "react-router-dom";
 import "../styles/cart.css";
 
 function Cart() {
-  const { cart, removeFromCart, clearCart } = useCart();
+  const { cart, removeFromCart, clearCart, updateQuantity } = useCart();
   const navigate = useNavigate();
 
-  const totalPrice = cart.reduce((total, item) => total + item.price, 0);
+  const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+
+  const handleQuantityChange = (item, increment) => {
+    updateQuantity(item.id, increment);
+  };
 
   return (
     <div className="cart-container">
@@ -21,6 +25,22 @@ function Cart() {
               <div className="cart-details">
                 <h4>{item.name}</h4>
                 <p>₹{item.price}</p>
+                <div className="quantity-controls">
+                  <button
+                    className="quantity-btn"
+                    onClick={() => handleQuantityChange(item, -1)}
+                    disabled={item.quantity <= 1}
+                  >
+                    -
+                  </button>
+                  <span className="quantity-display">{item.quantity}</span>
+                  <button
+                    className="quantity-btn"
+                    onClick={() => handleQuantityChange(item, 1)}
+                  >
+                    +
+                  </button>
+                </div>
                 <button
                   className="remove-btn"
                   onClick={() => removeFromCart(item)}
@@ -47,6 +67,13 @@ function Cart() {
               Clear Cart
             </button>
           )}
+          <button
+            className="clear-cart" // Same class as "Clear Cart" button
+            onClick={() => navigate("/payment")}
+            disabled={cart.length === 0}
+          >
+            Proceed to Checkout
+          </button>
         </div>
       </div>
     </div>

@@ -13,13 +13,25 @@ const getInitialCart = () => {
 function cartReducer(state, action) {
   switch (action.type) {
     case "ADD_TO_CART":
-      if (state.find(item => item.id === action.payload.id)) {
-        return state;
+      const existingItem = state.find(item => item.id === action.payload.id);
+      if (existingItem) {
+        return state.map(item =>
+          item.id === action.payload.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
       }
-      return [...state, action.payload];
+      return [...state, { ...action.payload, quantity: 1 }];
 
     case "REMOVE_FROM_CART":
       return state.filter(item => item.id !== action.payload.id);
+
+    case "UPDATE_QUANTITY":
+      return state.map(item =>
+        item.id === action.payload.id
+          ? { ...item, quantity: Math.max(1, item.quantity + action.payload.increment) }
+          : item
+      );
 
     case "CLEAR_CART":
       return [];
@@ -44,12 +56,16 @@ export function CartProvider({ children }) {
     dispatch({ type: "REMOVE_FROM_CART", payload: product });
   };
 
+  const updateQuantity = (id, increment) => {
+    dispatch({ type: "UPDATE_QUANTITY", payload: { id, increment } });
+  };
+
   const clearCart = () => {
     dispatch({ type: "CLEAR_CART" });
   };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity, clearCart }}>
       {children}
     </CartContext.Provider>
   );

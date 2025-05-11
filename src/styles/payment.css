@@ -1,0 +1,43 @@
+.payment-container {
+  width: 100%;
+  max-width: 450px;
+  margin: 200px auto 0 auto;  /* Adds top margin to separate the container */
+  padding: 30px;
+  background-color: #e2d6be;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.payment-heading {
+  font-size: 24px;
+  margin-bottom: 30px;  /* Increased margin-bottom to create more space between header and container */
+  color: #333;
+}
+
+.payment-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.payment-btn {
+  padding: 12px 20px;
+  background-color: #497D74;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.payment-btn:hover {
+  background-color: #497D74;
+  transform: scale(1.05);
+}
+
+.payment-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

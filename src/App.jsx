@@ -8,6 +8,8 @@ import About from './pages/About';
 import RegisterPage from './pages/RegisterPage';
 import PrivateRoute from './components/PrivateRoute';
 import SplashScreen from "./pages/SplashScreen";
+import PaymentOptions from './pages/PaymentOptions';
+import OrderSuccess from './pages/OrderSuccess';
 
 function App() {
   const isLoggedIn = sessionStorage.getItem("isLoggedIn") === "true";
@@ -15,35 +17,51 @@ function App() {
   return (
     <CartProvider>
       <Routes>
-        {/* Splash screen on first load */}
+        {/* Splash screen */}
         <Route path="/" element={<SplashScreen />} />
 
-        {/* Login & Register */}
+        {/* Auth pages */}
         <Route path="/login" element={<><Header /><Login /></>} />
         <Route path="/register" element={<><Header /><RegisterPage /></>} />
 
         {/* Protected routes */}
-        <Route 
-          path="/home" 
+        <Route
+          path="/home"
           element={
             <PrivateRoute>
               <><Header /><Home /></>
             </PrivateRoute>
           }
         />
-        <Route 
-          path="/cart" 
+        <Route
+          path="/cart"
           element={
             <PrivateRoute>
               <><Header /><Cart /></>
             </PrivateRoute>
           }
         />
+        <Route
+          path="/payment"
+          element={
+            <PrivateRoute>
+              <><Header /><PaymentOptions /></>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/order-success"
+          element={
+            <PrivateRoute>
+              <><Header /><OrderSuccess /></>
+            </PrivateRoute>
+          }
+        />
 
-        {/* Public About page */}
+        {/* Public page */}
         <Route path="/about" element={<><Header /><About /></>} />
 
-        {/* Catch-all: redirect unknown paths */}
+        {/* Fallback */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </CartProvider>
